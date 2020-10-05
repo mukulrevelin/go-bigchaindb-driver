@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"net/url"
+	"fmt"
 
 	"github.com/go-interledger/cryptoconditions"
 	"github.com/kalaspuffar/base64url"
@@ -118,7 +119,7 @@ func NewOutput(condition cryptoconditions.Condition, amount string) (Output, err
 
 	return Output{
 		Condition: Condition{
-			Uri: generateURI(condition.Type().String(), base64url.Encode(condition.Fingerprint())),
+			Uri: generateURI(condition.Type().String(), base64url.Encode(condition.fingerprint())),
 			Details: ConditionDetail{
 				PublicKey: base58.Encode(condition.Fingerprint()),
 				Type:      strings.ToLower(condition.Type().String()),
@@ -146,6 +147,8 @@ func generateURI(cType, encodedFingerprint string) string {
 		Path:     "/sha-256;" + encodedFingerprint,
 		RawQuery: params.Encode(),
 	}
+	
+	fmt.Println("uei",uri)
 
 	return uri.String()
 }
