@@ -138,8 +138,8 @@ func NewOutput(condition cryptoconditions.Condition, amount string) (Output, err
 func generateURI(cType, encodedFingerprint string) string {
 	params := make(url.Values)
 	// FIXME hardcoded costs
-	params.Set("cost", "131072")
 	params.Set("fpt", strings.ToLower(cType))
+	params.Set("cost", "131072")
 
 	uri := url.URL{
 		Scheme:   "ni",
