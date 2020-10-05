@@ -2,7 +2,7 @@ package interfaces
 
 import (
 	"github.com/mukulrevelin/go-bigchaindb-driver/pkg/client"
-	"github.com/fingerprint/go-bigchaindb-driver/pkg/transaction"
+	"github.com/mukulrevelin/go-bigchaindb-driver/pkg/transaction"
 )
 
 type Transaction interface {
