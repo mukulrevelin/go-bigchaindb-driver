@@ -119,7 +119,7 @@ func NewOutput(condition cryptoconditions.Condition, amount string) (Output, err
 
 	return Output{
 		Condition: Condition{
-			Uri: generateURI(condition.Type().String(), base64url.Encode(condition.fingerprint())),
+			Uri: generateURI(condition.Type().String(), base64url.Encode(condition.Fingerprint())),
 			Details: ConditionDetail{
 				PublicKey: base58.Encode(condition.Fingerprint()),
 				Type:      strings.ToLower(condition.Type().String()),
